@@ -1,9 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
+import SearchBar from "./components/SearchBar";
+import VideoDetail from "./components/VideoDetail";
+import VideoList from "./components/VideoList";
 
 function App() {
     return(
-        <h1>Hello...</h1>
+        <div>
+            <SearchBar />
+            <div>
+                <div>
+                    <VideoDetail/>
+                </div>
+                <div>
+                    <VideoList/>
+                </div>
+            </div>
+        </div>
     )
 }
 
