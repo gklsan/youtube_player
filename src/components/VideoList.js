@@ -1,8 +1,14 @@
 import React from 'react'
+import VideoItem from "./VideoItem";
 
-function VideoList() {
+function VideoList(props) {
+    const videoItems = props.videoList.map((item, idx) => {
+        return <VideoItem key={idx} video={item} />
+    });
     return(
-        <h1>Video List</h1>
+        <div>
+            { videoItems }
+        </div>
     )
 }
 

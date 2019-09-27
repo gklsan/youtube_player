@@ -1,8 +1,16 @@
 import React from 'react'
 
-function VideoItem() {
+function VideoItem(props) {
+    console.log(props.video)
+    const {id, snippet} = props.video;
     return(
-        <h1>Video Item</h1>
+
+        <div>
+            <p><strong>{snippet.title}</strong></p>
+            <p>{snippet.channelTitle}</p>
+            <p>{snippet.publishedAt}</p>
+            <hr />
+        </div>
     )
 }
 
