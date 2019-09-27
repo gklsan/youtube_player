@@ -2,7 +2,9 @@ import React from 'react'
 
 function VideoDetail() {
     return(
-        <h1>Video Details</h1>
+        <div className="">
+            <h1>Video Detail</h1>
+        </div>
     )
 }
 
