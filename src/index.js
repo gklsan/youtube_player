@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import SearchBar from "./components/SearchBar";
 import VideoDetail from "./components/VideoDetail";
 import VideoList from "./components/VideoList";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
     return(
