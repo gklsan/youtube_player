@@ -10,7 +10,8 @@ import youtube, { PRARMS } from "./apis/youtube";
 class App extends React.Component {
 
     state = {
-      searchResults: []
+        searchResults: [],
+        selectedVideo: null
     };
 
     onSearchSubmit = async searchText => {
@@ -20,13 +21,21 @@ class App extends React.Component {
                 q: searchText
             }
         });
-        this.setState({ searchResults: response.data.items });
+        this.setState({
+            searchResults: response.data.items,
+            selectedVideo: response.data.items[0]
+        });
+
     };
 
     componentDidMount() {
         if(this.state.searchResults.length === 0)
             this.onSearchSubmit('gklsan')
     }
+
+    onVideoSelect = video => {
+        this.setState({selectedVideo: video})
+    };
 
     render() {
         return (
@@ -41,10 +50,10 @@ class App extends React.Component {
                     </div>
                     <div className='d-flex w-100 align-self-center'>
                         <div className="shadow-lg p-3 mb-5 bg-white rounded w-75 mr-3">
-                            <VideoDetail video={this.state.searchResults[1]}/>
+                            <VideoDetail video={this.state.selectedVideo}/>
                         </div>
                         <div className="shadow-lg p-3 mb-5 bg-white rounded w-50">
-                            <VideoList videoList={this.state.searchResults}/>
+                            <VideoList videoList={this.state.searchResults} onVideoSelect={this.onVideoSelect}/>
                         </div>
                     </div>
                 </div>
