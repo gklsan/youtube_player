@@ -8,7 +8,14 @@ function VideoDetail({video}) {
         video && video.id.videoId ?
             <div className="">
                 <div className="embed-responsive embed-responsive-16by9">
-                    <iframe className="embed-responsive-item" src={"https://www.youtube.com/embed/" + video.id.videoId} allowFullScreen></iframe>
+                    <iframe
+                        className="embed-responsive-item"
+                        src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                        allowFullScreen
+                        title={video.snippet.title}
+                    >
+
+                    </iframe>
                 </div>
                 <h5 className="mt-4">{video.snippet.title}</h5>
                 <hr />

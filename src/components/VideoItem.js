@@ -1,24 +1,22 @@
 import React from 'react'
 
-function VideoItem(props) {
-    const {id, snippet} = props.video;
+function VideoItem({video, onVideoSelect}) {
+    const {snippet} = video;
 
     return(
         <div>
-            <div className='d-flex'>
+            <div
+                className='d-flex'
+                style={{cursor: 'pointer'}}
+                onClick={(event) => {
+                    event.preventDefault();
+                    onVideoSelect(video)
+                }}>
                 <div className="mr-3" style={{ width: '6rem', alignSelf: 'center'}}>
-                    <img src={snippet.thumbnails.medium.url} style={{width: '5rem'}} />
+                    <img src={snippet.thumbnails.medium.url} style={{width: '5rem'}} alt={snippet.title} />
                 </div>
                 <div>
-                    <a href=''
-                       data-etag={props.video.etag}
-                       onClick={(event) => {
-                           event.preventDefault();
-                           props.onVideoSelect(props.video)
-                       }}
-                    >
-                        {snippet.title}
-                    </a>
+                    <h4>{snippet.title}</h4>
                     <p>{snippet.channelTitle}</p>
                     <p>{snippet.publishedAt}</p>
                 </div>
